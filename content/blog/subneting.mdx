@@ -1,0 +1,201 @@
+---
+title: "Subneting: Pengertian, fungsi, contoh, dan cara subneting"
+description: Subneting class C, class B, class A
+date: 2025-02-07
+tags: ["subneting", "network"]
+published: true
+---
+
+# Pengertian dan contoh
+
+Subneting adalah Teknik membagi jaringan computer menjadi subjaringan yang lebih kecil. Subneting berfungsi untuk mempermudah saat pengelolaan jaringan disisi lain bisa juga optimalisasi dan efisiensi kerja jaringan karena jalur lalu lintas tidak terpusat di satu network besar tapi terbagi ke beberapa subnetwork.
+
+contoh dari subnetting adalah missal ada analogi sebuah jalan Am sangaji terdiri dari beberapa rumah dengan satu rumah yang bertugas untuk mengumumkan pengumuman, yaitu rumah RW. Ketika rumah di Am Sangaji bertambah banyak, maka akan terjadi kemacetan, sehingga dibuat gang gang kecil di Am Sangaji dan masing masing gang memiliki 1 rumah yang bertugas untuk mengumumkan pengumuman yaitu rumah RT. Maka saat pak RT ingin memberikan pengumuman tidak harus mendatangi 1 rumah ke rumah lain, cukup memberi tahu RW untuk menyebarkan pengumuman sehingga akan membuat lalu lintas lancer.
+
+Dalam subneting juga ada yang Namanya subnet mask, subnet mask berfungsi untu membagi network atau host nya. Address mana saja yang berfungsi sebagai subnet dan host yang berfungsi sebagai broadcast dapar kita ketahui dari subnet mask nya
+
+# Tabel subnetmask
+tabel subnetmask berfungsi untuk memudahkan menghitung cidr ke subnetmask 
+<table>
+  <thead>
+    <tr>
+      <th>Subnetmask</th>
+      <th>CIDR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>255.128.0.0</td>
+      <td>/9</td>
+    </tr>
+    <tr>
+      <td>255.192.0.0</td>
+      <td>/10</td>
+    </tr>
+    <tr>
+      <td>255.224.0.0</td>
+      <td>/11</td>
+    </tr>
+
+    <tr>
+      <td>255.240.0.0</td>
+      <td>/12</td>
+    </tr>
+        <tr>
+      <td>255.248.0.0</td>
+      <td>/13</td>
+    </tr>
+        <tr>
+      <td>255.252.0.0</td>
+      <td>/14</td>
+    </tr>
+        <tr>
+      <td>255.254.0.0</td>
+      <td>/15</td>
+    </tr>
+        <tr>
+      <td>255.255.0.0</td>
+      <td>/16</td>
+    </tr>
+        <tr>
+      <td>255.255.128.0</td>
+      <td>/17</td>
+    </tr>
+        <tr>
+      <td>255.255.192.0</td>
+      <td>/18</td>
+    </tr>
+        <tr>
+      <td>255.255.224.0	</td>
+      <td>/19</td>
+    </tr>
+        <tr>
+      <td>255.255.240.0</td>
+      <td>/20</td>
+    </tr>
+        <tr>
+      <td>255.255.248.0</td>
+      <td>/21</td>
+    </tr>
+        <tr>
+      <td>255.255.252.0</td>
+      <td>/22</td>
+    </tr>
+        <tr>
+      <td>255.255.254.0</td>
+      <td>/23</td>
+    </tr>
+        <tr>
+      <td>255.255.255.0</td>
+      <td>/24</td>
+    </tr>
+        <tr>
+      <td>255.255.255.128</td>
+      <td>/25</td>
+    </tr>
+        <tr>
+      <td>255.255.255.192</td>
+      <td>/26</td>
+    </tr>
+        <tr>
+      <td>255.255.255.224</td>
+      <td>/27</td>
+    </tr>
+    <tr>
+      <td>255.255.255.240</td>
+      <td>/28</td>
+    </tr>
+    <tr>
+      <td>255.255.255.248</td>
+      <td>/29</td>
+    </tr>
+    <tr>
+      <td>255.255.255.252</td>
+      <td>/30</td>
+    </tr>
+  </tbody>
+</table>
+
+
+# Subneting class C
+
+Kita akan melakukkan subnetting Ip 105.168.10.0 /24
+
+```mdx
+jika cidr /20 maka kita menggunakan subnetmask 255.255.255.0
+setelah itu kita hitung subnetmask, cara hitung nya 
+subnet default - subnetmask yang kita punya
+
+255.255.255.255
+255.255.255.0
+______________ _
+0.0.0.255
+
+Setelah itu bisa mencari broadcast dengan cara
+Ip awal ditambah dengan hasil subnet
+
+105.168.10.0
+0.0.0.255
+______________ _
+105.168.10.255
+
+Hasil:
+Ip broadcast: 105.168.10.255
+Gateway: 105.168.10.1 atau 105.168.10.254
+```
+
+# Subneting class B
+
+Kita akan melakukkan subneting Ip 192.168.129.23 /17
+
+```mdx
+Jika cidr /17 maka kita menggunakan subnetmask 255.255.128.0
+setelah itu kita hitung subnetmask, cara hitung nya
+adalah subnet default - subnetmask yang kita punya
+
+255.255.255.255
+255.255.128.0
+______________ _ 
+0.0.127.255
+
+Setelah itu mencari broadcast dengan cara Ip awal ditambah dengan hasil subnet
+
+192.168.129.23
+0.0.127.255
+______________ _ 
+192.168.255.255
+
+Hasil:
+Ip broadcast: 192.168.255.255
+Gateway: 192.168.129.24 atau 192.168.255.254
+```
+
+# Subneting class A
+
+Kita akan melakukkan subnetting Ip 10.0.128.0 /20
+
+```mdx
+Jika cidr /20 maka kita menggunakan subnetmask 255.255.240.0
+setelah itu kita hitung subnetmask, cara hitung nya 
+adalah subnet default - subnetmask yang kita punya
+
+255.255.255.255
+255.255.240. 0
+______________ _
+0.0.15.255
+
+Setekah itu mencari broadcast dengan cara Ip awal ditambah
+dengan hasil subnet
+
+10.0.128.0
+0 .0.15 .255
+______________ _
+10.0.143.255
+
+Hasil:
+Ip broadcast: 10.0.143.255
+Gateway: 10.0.128.1 atau 10.0.143.254
+```
+
+Semoga tutorial ini membuat teman teman paham bagaimana cara subneting jaringan. Jika ada yang belum
+dipahami, teman teman bisa membaca ulang artikel ini dari atas secara pelan pelan, Terimakasih.
