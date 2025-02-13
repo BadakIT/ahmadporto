@@ -22,18 +22,18 @@ berinteraksi satu sama lain.
 
 <img src="/layerosi.jpg" alt="Layer OSI" width={500}/>
 
-1. Application Layer (Layer ke 7)
+__1. Application Layer (Layer ke 7)__
 
 Layer ini menjadi pusat interaksi antara user denga aplikasi yang digunakan menggunakan fungsionalitas
 jaringan. Layer ini menjadi layer paling atas, beberapa contoh Application layer adalah HTTP,FTP,SMPT, dan lain lain.
 
-2. Presentation layer (Layer ke 6)
+__2. Presentation layer (Layer ke 6)__
 
 Berfungsi untuk mengidentifikasi sintaks yang dipakai suatu host jaringan. Layer ini perlu memberi enkripsi
 serta deskripsi data yang nantinya akan di pakai dalam layer application. Pada layer ini data ter-enkripsi
 otomatis melalui sistem. ada beberap protokol di layer ini seperti SSL.
 
-3. Session Layer (Layer ke 5)
+__3. Session Layer (Layer ke 5)__
 
 Lapisan session berperan dalam mengelola dialog dan koneksi antara komputer. Selain itu, lapisan
 ini juga dapat mengatur pemutusan koneksi internet pada suatu perangkat. Beberapa protokol yang bekerja
@@ -41,3 +41,54 @@ pada lapisan ini antara lain NFS, RTP, dan SMB.
 
 4. Transport Layer (Layer ke 4)
 
+
+__4. Transport Layer (Layer ke 4)__
+
+Transport layer berfungsi untuk menyalurkan bit. fungsi spesifik dari layer ini adalah memcah data yang akan dimasukan ke paket data, 
+melakukkan transmisi data mulai dari session sampai ke network layer, memberikan penomoran kedalam paket, melakukkan
+loopinh terhadap transmisi kedalam paket data yang hilang. Dengan layer ini, data disampaikan dari server ke pengguna.
+
+__5. Network Layer (Layer ke 3)__
+
+layer ini berfungsi untuk memberikan IP sehingga komputer dapat saling terkoneksi dalam satu jaringan. layer ini juga melakukkan 
+routing danmembuat header untuk setiap paket.
+
+__6. Data Link Layer (lapisan ke 2)__
+
+Fungsi utama data link adalah memeriksa apabila terjadi kesalahan dalam menyalurkan transmisi terhadap bit data. 
+Pada layer ini juga terjadi koreksi kesalahan, pengalamatan hardware pada MAC address, dan flow control.
+
+__7. Physical Layer (Lapisan Pertama)__
+
+Lapisan pertama pada layer OSI ini berfungsi untuk transmisi bit melalui media fisik, seperti
+kabel tembaga, serat optik, atau gelombang radio. 
+
+# Cara Kerja OSI Layer
+
+Cara kerja layer osi seperti saat kita mengirimkan surat. Agar surat diterima denga baik harus 
+melewati berbagai tahapan pengiriman. Berikut ini penjelasan singkat tentang carakerja OSI:
+
+1. Application layer akan mengirim data yang di kirim oleh user pada perangkat komputer penerima data.
+2. Terjadi konversi email menjadi sebuah format jaringan pada presentation layer.
+3. Pada session layer akan di bentuk sesi perjalanan data hingga seluruh proses pengiriman data 
+selesai di laksanakan.
+4. Pengirim melakukan pemecahan data di transport layer, dan di kumpulkan kembali pada 
+transport layer penerima.
+5. Network layer membuat alamat untuk mengarahkan data ke tujuan dengan benar.
+6. Akan di lakukan pembentukan data menjadi bentuk frame serta alamat fisik dalam data link layer. 
+7. Pada physical layer, si lapisan utama, data akan di kirim melalui perantara jaringan 
+menuju lapisan transport penerima.
+8. Alur proses akan berbalik serta berulang dari physical layer ke application layer sampai 
+mengarah ke jaringan komputer user.
+
+# Kesimpulan
+
+Model OSI membantu kita memahami bagaimana komunikasi jaringan berlangsung dalam tujuh 
+lapisan yang berbeda. Setiap lapisan memiliki perannya masing-masing, dari transmisi fisik hingga 
+interaksi pengguna. Dengan memahami model ini, kita dapat lebih mudah dalam mengelola dan 
+mengatasi masalah jaringan, serta memahami bagaimana data dikirimkan dari satu perangkat ke 
+perangkat lainnya.
+
+Dengan pemahaman yang baik tentang OSI, kita dapat mengoptimalkan konfigurasi jaringan, 
+meningkatkan keamanan, serta memastikan komunikasi data yang lebih efisien dalam berbagai skenario 
+jaringan.
