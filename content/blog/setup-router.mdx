@@ -1,0 +1,36 @@
+---
+title: "Setup internet di router RB951"
+description: Tutorial konfigurasi dan penjelasan singkat
+date: 2025-02-13
+tags: ["router", "topologi", "network", "access point"]
+published: true
+---
+## Pendahuluan
+
+MikroTik RB951 adalah salah satu jenis router yang sering digunakan untuk mengatur jaringan internet, 
+baik di rumah maupun di kantor kecil. Router ini berfungsi untuk menghubungkan perangkat dalam satu 
+jaringan dan memastikan koneksi internet berjalan dengan lancar. Agar bisa digunakan dengan baik, 
+MikroTik RB951 perlu dikonfigurasi terlebih dahulu, seperti mengatur alamat IP, gateway, dan DNS. 
+Proses konfigurasi ini bisa dilakukan melalui aplikasi WinBox yang memiliki tampilan sederhana atau 
+lewat Command Line Interface (CLI) bagi yang lebih suka menggunakan perintah teks. Dengan konfigurasi 
+yang tepat, router ini bisa membantu membagi jaringan internet secara 
+stabil dan aman untuk semua perangkat yang terhubung.
+
+Untuk topologi yang akan kita gunakan, contoh gambar yang ada dibawah ini
+<img src="/konfigurasivlan/topologi.png" alt="Topologi" width={800}/>
+Setelah membuat topologi seperti diatas, kita langsung mulai langkah pertama yaitu sambungkan router 
+dengan komputer / laptop kalian dan buka aplikasi winbox. Setelah itu masuk kedalam router dengan cara
+_**Buka di neighbors lalu pencet connect**_
+<img src="/konfigurasivlan/1.png" alt="Topologi" width={800}/>
+
+Setelah login buka _**Interface > Wlan1 > wireless > mode diganti ap bridge > pencet oke > lalu pencet centang**_
+<img src="/konfigurasivlan/2.png" alt="Topologi" width={800}/>
+
+Jika sudah langsung membuat dhcp client di ether 1 dengan cara buka _**IP > dhcp client > new dhcp client > Interface
+diganti ether 1 > lalu klik OK**_
+<img src="/konfigurasivlan/3.png" alt="Topologi" width={800}/>
+
+Lanjut membuat firewall untuk ether 1 dan berikan juga action masquerade agar bisa mengubah IP pribadi menjadi
+IP publik secara dinamis dengan langkah langkah ini _**IP > firewall > nat > general > chain diisi srcnat > out Interface
+diisi ether 1 > lalu buka action > action diganti masquerade**_
+<img src="/konfigurasivlan/4.png" alt="Topologi" width={800}/>
