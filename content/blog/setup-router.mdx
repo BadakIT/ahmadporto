@@ -34,3 +34,19 @@ Lanjut membuat firewall untuk ether 1 dan berikan juga action masquerade agar bi
 IP publik secara dinamis dengan langkah langkah ini _**IP > firewall > nat > general > chain diisi srcnat > out Interface
 diisi ether 1 > lalu buka action > action diganti masquerade**_
 <img src="/konfigurasivlan/4.png" alt="Topologi" width={800}/>
+
+Setelah membuat firewall, kita akan menggabungkan interface dengan bridge. Cara konfigurasi bridge yaitu _**masuk ke menu bridge > tambah bridge >
+pilih oke**_
+<img src="/konfigurasivlan/5.png" alt="Topologi" width={800}/>
+
+Jika sudah membuat kelompok bridge, kita akan membuat interface yang akan digabung dengan cara _**masuk ke menu port > tambah port >
+pilih interface ether 2 dan bridge nya bridge yang sudah kita buat tadi. Lakukan hal yang sama tapi interface diganti dengan Wlan1, karena kita
+akan menggabungkan ether2 dengan wlan1**_
+<img src="/konfigurasivlan/6.png" alt="Topologi" width={800}/>
+
+Kita akan lanjut untuk menambahkan IP Address dengan cara _**IP > Addresses > new address > masukan IP yang akan digunakan > 
+lalu interface pilih bridge adapter yang sudah kita buat tadi jangan pilih ether 1**_
+<img src="/konfigurasivlan/8.png" alt="Topologi" width={800}/>
+
+Langkah terakhir adalah membuat dhcp server agar client bisa mendapat IP secara otomatis. Caranya yaitu _**IP > DHCP Server > DHCP Setup > Bridge 1 > klik next saja sampai
+setup selesai. dan router sudah bisa mengakses internet**_
