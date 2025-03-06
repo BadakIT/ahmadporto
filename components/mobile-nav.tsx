@@ -37,7 +37,7 @@ export function MobileNav() {
             About
           </MobileLink>
           <Link target="_blank" rel="noreferrer" href={siteConfig.links.Linkdln}>
-          Linkdln
+          Linkedln
           </Link>
           <Link
             target="_blank"
