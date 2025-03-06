@@ -8,6 +8,7 @@ export const siteConfig = {
     Linkdln:
       "https://www.linkedin.com/in/ahmad-triwibowo-47b110336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     personalSite: "#",
+    github: "https://github.com/BadakIT",
   },
 };
 
