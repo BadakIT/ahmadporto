@@ -12,7 +12,7 @@ export function SiteFooter() {
             <Mail className="h-6 w-6" />
           </a>
           <a target="_blank" rel="noreferrer" href={siteConfig.links.twitter}>
-            <span className="sr-only">Instagram</span>
+            <span className="sr-only">Twitter</span>
             <Icons.twitter className="h-6 w-6" />
           </a>
           <a target="_blank" rel="noreferrer" href={siteConfig.links.Linkdln}>
