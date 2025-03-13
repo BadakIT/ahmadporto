@@ -6,7 +6,7 @@ tags: ["subneting", "network"]
 published: true
 ---
 
-# Pengertian dan contoh
+## Pengertian dan contoh
 
 Subneting adalah Teknik membagi jaringan computer menjadi subjaringan yang lebih kecil. Subneting berfungsi untuk mempermudah saat pengelolaan jaringan disisi lain bisa juga optimalisasi dan efisiensi kerja jaringan karena jalur lalu lintas tidak terpusat di satu network besar tapi terbagi ke beberapa subnetwork.
 
@@ -14,7 +14,7 @@ contoh dari subnetting adalah missal ada analogi sebuah jalan Am sangaji terdiri
 
 Dalam subneting juga ada yang Namanya subnet mask, subnet mask berfungsi untu membagi network atau host nya. Address mana saja yang berfungsi sebagai subnet dan host yang berfungsi sebagai broadcast dapar kita ketahui dari subnet mask nya
 
-# Tabel subnetmask
+## Tabel subnetmask
 tabel subnetmask berfungsi untuk memudahkan menghitung cidr ke subnetmask 
 <table>
   <thead>
@@ -117,7 +117,7 @@ tabel subnetmask berfungsi untuk memudahkan menghitung cidr ke subnetmask
 </table>
 
 
-# Subneting class C
+## Subneting class C
 
 Kita akan melakukkan subnetting Ip 105.168.10.0 /24
 
@@ -144,7 +144,7 @@ Ip broadcast: 105.168.10.255
 Gateway: 105.168.10.1 atau 105.168.10.254
 ```
 
-# Subneting class B
+## Subneting class B
 
 Kita akan melakukkan subneting Ip 192.168.129.23 /17
 
@@ -170,7 +170,7 @@ Ip broadcast: 192.168.255.255
 Gateway: 192.168.129.24 atau 192.168.255.254
 ```
 
-# Subneting class A
+## Subneting class A
 
 Kita akan melakukkan subnetting Ip 10.0.128.0 /20
 
@@ -195,6 +195,95 @@ ______________ _
 Hasil:
 Ip broadcast: 10.0.143.255
 Gateway: 10.0.128.1 atau 10.0.143.254
+```
+
+# Implementasi Subneting Pada jaringan
+
+Pada tutorial ini kita akan melakukkan subnetting IP Addresses sampai membagi ke subnet subnet kecil. Mungkin dari tutorial diatas
+teman teman masih kurang paham bagaimana implementasi subneting di projek, nah kali ini kita akan membagi 1 IP menjadi beberapa subnet 
+yang lebih kecil. Simak tutorial berikut ini
+
+### Kita akan melakukkan subneting IP 10.0.0.0 /8 dan akan membuat 16 subnet kecil.
+
+```mdx
+1. kita harus menentukan bit yang dipinjam dengan cara 2 
+pangkat n >= jumlah subnet
+
+Jika kita membutuhkan jumlah subnet 16 maka kita cari 2 pangkat berapa 
+yang hasilnya sama dengan 16 atau lebih, maka kita akan
+menggunakan 2 pangkat 4 yang hasilnya 16. Jadi angka 4 ini adalah bit 
+yang kita pinjam dari host.
+
+2. Kita akan menentukan subnet mask
+
+Pada default awal IP kita menggunakan /8 untuk subnet nya, jika 
+kita pinjam 4 dari subnet host maka kita akan tambahkan 4 ke subnet mask
+awal dan mendapat hasil /12
+
+3. Setelah itu, langkah selanjutnya adalah menentukan host per subnet
+dengan menggunakan rumus 2 pangkat h - 2, dengan h adalah jumlah host 
+yang tersisa.
+
+Bagaimana cara mencari host yang terisisa? jika kita melihat 
+tabel CIDR diatas, /12 memiliki subnet 255.240.0.0 jika 
+diubah binner menjadi 11111111.11110000.00000000.00000000 nah sisa dari 
+bit host ditentukan dengan jumlah angka 0, angka 0 di dalam
+angka biner berjumlah 20, maka hasil untuk h adalah 20
+
+Setelah mencari h, kita akan menghitung jumlah host dengan rumus
+2 pangkat 20 yang memiliki hasil 1.048.576 - 2 menjadi 1.048.574
+
+Jadi setiap subnet dapat menampung 1.048.574 perangkat
+
+4. Untuk langkah yang ke 4 adalah menentukan blok subnet
+Tadi kita akan membagi kedalam 16 subnet kecil
+
+Untuk menentukan range IP di setiap subnet, kita menggunakan cara
+kelipatan subnet. Disini kita menggunakan subnet mask /12
+maka kelipatannya adalah 16 di oktet ke 2. Kenapa bisa 16?
+karena kita mengurangi default blok subnet 256 dengan nilai
+oktet kedua kita yaitu 240 begini rumus nya
+
+Kelipatan Subnet = 256 - Nilai oktet terakhir subnet mask
+dihasilkan seperti ini = 256 - 240 = 16
+
+Maka hasil subneting jika dibuat table akan menjadi seperti ini
+
+```
+
+<table>
+  <thead>
+    <tr>
+      <th>Subnet</th>
+      <th>Network Address</th>
+      <th>Host Range</th>
+      <th>Broadcast Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Subnet 1</td><td>10.0.0.0/12</td><td>10.0.0.1 – 10.15.255.254</td><td>10.15.255.255</td></tr>
+    <tr><td>Subnet 2</td><td>10.16.0.0/12</td><td>10.16.0.1 – 10.31.255.254</td><td>10.31.255.255</td></tr>
+    <tr><td>Subnet 3</td><td>10.32.0.0/12</td><td>10.32.0.1 – 10.47.255.254</td><td>10.47.255.255</td></tr>
+    <tr><td>Subnet 4</td><td>10.48.0.0/12</td><td>10.48.0.1 – 10.63.255.254</td><td>10.63.255.255</td></tr>
+    <tr><td>Subnet 5</td><td>10.64.0.0/12</td><td>10.64.0.1 – 10.79.255.254</td><td>10.79.255.255</td></tr>
+    <tr><td>Subnet 6</td><td>10.80.0.0/12</td><td>10.80.0.1 – 10.95.255.254</td><td>10.95.255.255</td></tr>
+    <tr><td>Subnet 7</td><td>10.96.0.0/12</td><td>10.96.0.1 – 10.111.255.254</td><td>10.111.255.255</td></tr>
+    <tr><td>Subnet 8</td><td>10.112.0.0/12</td><td>10.112.0.1 – 10.127.255.254</td><td>10.127.255.255</td></tr>
+    <tr><td>Subnet 9</td><td>10.128.0.0/12</td><td>10.128.0.1 – 10.143.255.254</td><td>10.143.255.255</td></tr>
+    <tr><td>Subnet 10</td><td>10.144.0.0/12</td><td>10.144.0.1 – 10.159.255.254</td><td>10.159.255.255</td></tr>
+    <tr><td>Subnet 11</td><td>10.160.0.0/12</td><td>10.160.0.1 – 10.175.255.254</td><td>10.175.255.255</td></tr>
+    <tr><td>Subnet 12</td><td>10.176.0.0/12</td><td>10.176.0.1 – 10.191.255.254</td><td>10.191.255.255</td></tr>
+    <tr><td>Subnet 13</td><td>10.192.0.0/12</td><td>10.192.0.1 – 10.207.255.254</td><td>10.207.255.255</td></tr>
+    <tr><td>Subnet 14</td><td>10.208.0.0/12</td><td>10.208.0.1 – 10.223.255.254</td><td>10.223.255.255</td></tr>
+    <tr><td>Subnet 15</td><td>10.224.0.0/12</td><td>10.224.0.1 – 10.239.255.254</td><td>10.239.255.255</td></tr>
+    <tr><td>Subnet 16</td><td>10.240.0.0/12</td><td>10.240.0.1 – 10.255.255.254</td><td>10.255.255.255</td></tr>
+  </tbody>
+</table>
+
+```mdx
+Jika sudah berhasil membagi 1 ip menjadi subnet yang lebih kecil, kita bisa 
+langsung mengimolementasikan
+di router dengan memasukkan IP dan menambah range sesuai hasil subnet kita.
 ```
 
 Semoga tutorial ini membuat teman teman paham bagaimana cara subneting jaringan. Jika ada yang belum
