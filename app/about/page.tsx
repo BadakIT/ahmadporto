@@ -21,8 +21,8 @@ export default async function AboutPage() {
       <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
         <div className="min-w-48 max-w-48 flex flex-col gap-2">
           <Avatar className="h-48 w-48">
-            <AvatarImage src="/avatar.png" alt={siteConfig.author} />
-            <AvatarFallback>JC</AvatarFallback>
+            <AvatarImage src="/profilmad.jpg" alt={siteConfig.author} />
+            <AvatarFallback>Ahmad foto</AvatarFallback>
           </Avatar>
           <h2 className="text-2xl font-bold text-center break-words">
             {siteConfig.author}
@@ -32,12 +32,10 @@ export default async function AboutPage() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-          my name is ahmad triwibowo, I currently attending SMK N 2 Yogyakarta as a 12th grade student majoring
-          in network information and applications (SIJA), which focuses on
-          building, managing, and securing computer networks, as well as
-          developing software applications. I have experience in building and
-          managing networks such as subnetting, FO splacing, RJ45 crimping,
-          installing ODP.
+          Saya adalah siswa SMK N 2 Yogyakarta jurusan Sistem Informasi,
+          Jaringan, dan Aplikasi(SIJA) yang fokus mempelajari jaringan dari
+          harware maupun software yang mempunyai keahlian splacing FO, crimping RJ45,
+          dan pengelolaan perangkat jaringan seperti mikrotik dan cisco.
         </p>
       </div>
     </div>
